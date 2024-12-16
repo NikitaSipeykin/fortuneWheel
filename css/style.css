@@ -11,6 +11,14 @@ body {
   place-items: center;
   /* если что-то не помещается на своё место — скрываем то, что не поместилось */
   overflow: hidden;
+  background: url("/images/bg.webp") no-repeat;
+  background-size: 100% 100%;
+}
+
+
+ul {
+  padding-inline-start: 0;
+
 }
 
 /* общий блок для всех элементов */
@@ -21,10 +29,8 @@ body {
   /* настройки яркости и заливки фона секторов */
   --lg-hs: 0 3%;
   --lg-stop: 50%;
-  --lg: linear-gradient(
-      hsl(var(--lg-hs) 0%) 0 var(--lg-stop),
-      hsl(var(--lg-hs) 20%) var(--lg-stop) 100%
-    );
+  --lg: linear-gradient(hsl(var(--lg-hs) 0%) 0 var(--lg-stop),
+      hsl(var(--lg-hs) 20%) var(--lg-stop) 100%);
   /* добавляем позиционирование относительно других элементов */
   position: relative;
   /* подключаем сетку */
@@ -41,7 +47,7 @@ body {
 }
 
 /* всё, что относится ко внутренним элементам главного блока, будет находиться в области сетки с названием spinner */
-.deal-wheel > * {
+.deal-wheel>* {
   grid-area: spinner;
 }
 
@@ -68,6 +74,7 @@ body {
   transform: rotate(calc(var(--rotate, 25) * 1deg));
   /* рисуем круглую обводку, а всё, что не поместится, — будет скрыто за кругом */
   border-radius: 50%;
+  opacity: 65%;
 }
 
 /* всё, что внутри этого блока, будет находиться в области сетки с названием spinner */
@@ -141,7 +148,7 @@ body {
 
 /* анимация движения язычка */
 .is-spinning .ticker {
-          animation: tick 700ms cubic-bezier(0.34, 1.56, 0.64, 1);
+  animation: tick 700ms cubic-bezier(0.34, 1.56, 0.64, 1);
 }
 
 
@@ -163,6 +170,7 @@ body {
 
 /* настраиваем анимацию текста на выпавшем секторе по кадрам */
 @keyframes selected {
+
   /* что происходит на 25% от начала анимации */
   25% {
     /* увеличиваем текст в 1,25 раза */
@@ -170,18 +178,57 @@ body {
     /* добавляем тексту тень */
     text-shadow: 1vmin 1vmin 0 hsla(0 0% 0% / 0.1);
   }
+
   40% {
     transform: scale(0.92);
     text-shadow: 0 0 0 hsla(0 0% 0% / 0.2);
   }
+
   60% {
     transform: scale(1.02);
     text-shadow: 0.5vmin 0.5vmin 0 hsla(0 0% 0% / 0.1);
   }
+
   75% {
     transform: scale(0.98);
   }
+
   85% {
     transform: scale(1);
+  }
+}
+
+.is-spinning .image {
+  /* Анимация вращения */
+  transition: transform 8s cubic-bezier(0.1, -0.01, 0, 1);
+  transform: rotate(calc(var(--rotate, 25) * 1deg));
+}
+
+.img-box {
+  display: flex;
+  z-index: -1;
+  align-items: center;
+  justify-content: center;
+  animation-fill-mode: forwards;
+}
+
+.image {
+  transform: rotate(calc(var(--rotate, 25) * 1deg));
+  width: 649px;
+  animation-fill-mode: forwards;
+}
+
+.result-image {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  img {
+    max-width: 500px;
+    max-height: 500px;
+  }
+
+  &.hidden {
+    display: none;
   }
 }
