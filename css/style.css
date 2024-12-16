@@ -1,126 +1,234 @@
-/*= GLOBAL =========================================================================================*/
-/*- GLOBAL -----------------------------------------------------------------------------------------*/
-/*- GLOBAL -----------------------------------------------------------------------------------------*/
-
-html, body {
-  font-family: Lato, sans-serif;
-  color: #424551;
-  line-height: 160%;
+/* делаем везде так, чтобы свойства width и height задавали не размеры контента, а размеры блока */
+* {
+  box-sizing: border-box;
 }
 
-.wrapper {
-  min-height: 100%;
-  width: 100%;
+/* общие настройки страницы */
+body {
+  /* подключаем сетку */
+  display: grid;
+  /* ставим всё по центру */
+  place-items: center;
+  /* если что-то не помещается на своё место — скрываем то, что не поместилось */
   overflow: hidden;
-}
-
-.container {
-  max-width: 1260px;
-  padding: 0 15px;
-  margin: 0 auto;
-  height: 100%;
-}
-
-.main_about {
-  padding: 180px 0 160px;
+  background: url("/images/bg.webp") no-repeat;
+  background-size: 100% 100%;
 }
 
 
+ul {
+  padding-inline-start: 0;
 
-/*= HEADER ======================================================================================*/
-/*= HEADER ======================================================================================*/
-/*= HEADER ======================================================================================*/
-
-
-
-
-.header {
-  font-weight: 700;
-  background:
-    linear-gradient(55.95deg,
-      rgba(255, 63, 58, 0.2) 0%,
-      rgba(247, 94, 5, 0.2) 100%);
-  height: 100vh;
-  display: flex;
-  flex-direction: column;
 }
 
-
-
-/*- HEADER-TOP ----------------------------------------------------------------------------------*/
-/*- HEADER-TOP ----------------------------------------------------------------------------------*/
-/*- HEADER-TOP ----------------------------------------------------------------------------------*/
-
-
-
-
-
-.header_top-inner {
-  padding: 20px 0px;
-  display: flex;
-  justify-content: space-between;
+/* общий блок для всех элементов */
+.deal-wheel {
+  /* задаём переменные блока */
+  /* размеры колеса */
+  --size: clamp(250px, 80vmin, 700px);
+  /* настройки яркости и заливки фона секторов */
+  --lg-hs: 0 3%;
+  --lg-stop: 50%;
+  --lg: linear-gradient(hsl(var(--lg-hs) 0%) 0 var(--lg-stop),
+      hsl(var(--lg-hs) 20%) var(--lg-stop) 100%);
+  /* добавляем позиционирование относительно других элементов */
+  position: relative;
+  /* подключаем сетку */
+  display: grid;
+  grid-gap: calc(var(--size) / 20);
+  /* выравниваем содержимое блока по центру */
   align-items: center;
+  /* задаём имена областей внутри сетки */
+  grid-template-areas:
+    "spinner"
+    "trigger";
+  /* устанавливаем размер шрифта */
+  font-size: calc(var(--size) / 21);
 }
 
-
-/*- HEADER-BODY ---------------------------------------------------------------------------------*/
-/*- HEADER-BODY ---------------------------------------------------------------------------------*/
-
-.header_body {
-  flex-grow: 1;
+/* всё, что относится ко внутренним элементам главного блока, будет находиться в области сетки с названием spinner */
+.deal-wheel>* {
+  grid-area: spinner;
 }
 
-.header_body-inner {
-  display: flex;
-  flex-direction: column;
-  height: 100%;
+/* сам блок и кнопка будут находиться в области сетки с названием trigger и будут выровнены по центру */
+.deal-wheel .btn-spin {
+  grid-area: trigger;
+  justify-self: center;
 }
 
-
-/*= FOOTER ======================================================================================*/
-/*- FOOTER --------------------------------------------------------------------------------------*/
-/*- FOOTER --------------------------------------------------------------------------------------*/
-
-
-
-.footer {
-  color: #fff;
-}
-
-
-/*= FOOTER TOP ======================================================================================*/
-/*- FOOTER TOP --------------------------------------------------------------------------------------*/
-/*- FOOTER TOP --------------------------------------------------------------------------------------*/
-
-
-
-.footer_top {
-  background-color: var(--gray-900, #1E212C);
-  padding: 80px 0 60px;
-}
-
-.footer_top-inner {
-  display: flex;
-  justify-content: space-between;
-  margin: 0 -15px;
-  width: 100%;
-}
-
-
-/*= FOOTER BOTTOM ======================================================================================*/
-/*- FOOTER BOTTOM --------------------------------------------------------------------------------------*/
-/*- FOOTER BOTTOM --------------------------------------------------------------------------------------*/
-
-
-
-
-.footer_bottom {
-  background-color: #292C37;
-}
-
-.footer_bottom-inner {
-  display: flex;
-  justify-content: space-between;
+/* сектор колеса */
+.spinner {
+  /* добавляем относительное позиционирование */
+  position: relative;
+  /* подключаем сетку */
+  display: grid;
+  /* выравниваем всё по центру */
   align-items: center;
-  padding: 20px 0;
+  /* добавляем элемент в сетку */
+  grid-template-areas: "spinner";
+  /* устанавливаем размеры */
+  width: var(--size);
+  height: var(--size);
+  /* поворачиваем элемент  */
+  transform: rotate(calc(var(--rotate, 25) * 1deg));
+  /* рисуем круглую обводку, а всё, что не поместится, — будет скрыто за кругом */
+  border-radius: 50%;
+  opacity: 65%;
+}
+
+/* всё, что внутри этого блока, будет находиться в области сетки с названием spinner */
+.spinner * {
+  grid-area: spinner;
+}
+
+/* текст на секторах */
+.prize {
+  /* включаем «гибкую» вёрстку */
+  display: flex;
+  align-items: center;
+  /* задаём отступы от краёв блока */
+  padding: 0 calc(var(--size) / 6) 0 calc(var(--size) / 20);
+  /* устанавливаем размеры */
+  width: 50%;
+  height: 50%;
+  /* устанавливаем координаты, относительно которых будем вращать текст */
+  transform-origin: center right;
+  /* поворачиваем текст */
+  transform: rotate(var(--rotate));
+  /* запрещаем пользователю выделять мышкой текст на секторах */
+  user-select: none;
+}
+
+/* язычок */
+.ticker {
+  /* добавляем относительное позиционирование */
+  position: relative;
+  /* устанавливаем размеры */
+  left: calc(var(--size) / -15);
+  width: calc(var(--size) / 10);
+  height: calc(var(--size) / 20);
+  /* фон язычка */
+  background: var(--lg);
+  /* делаем так, чтобы язычок был выше колеса */
+  z-index: 1;
+  /* форма язычка */
+  clip-path: polygon(20% 0, 100% 50%, 20% 100%, 0% 50%);
+  /* устанавливаем точку, относительно которой будет вращаться язычок при движении колеса */
+  transform-origin: center left;
+}
+
+/* кнопка запуска колеса */
+.btn-spin {
+  color: white;
+  background: black;
+  border: none;
+  /* берём размер шрифта такой же, как в колесе */
+  font-size: inherit;
+  /* добавляем отступы от текста внутри кнопки */
+  padding: 0.9rem 2rem 1rem;
+  /* скругляем углы */
+  border-radius: 0.5rem;
+  /* меняем внешний вид курсора над кнопкой на руку*/
+  cursor: pointer;
+}
+
+/* если кнопка нажата и неактивна */
+.btn-spin:disabled {
+  /* меняем внешний вид курсора */
+  cursor: progress;
+  /* делаем кнопку полупрозрачной */
+  opacity: 0.25;
+}
+
+/* анимация вращения */
+.is-spinning .spinner {
+  transition: transform 8s cubic-bezier(0.1, -0.01, 0, 1);
+}
+
+/* анимация движения язычка */
+.is-spinning .ticker {
+  animation: tick 700ms cubic-bezier(0.34, 1.56, 0.64, 1);
+}
+
+
+/* эффект, когда колесо задевает язычок при вращении */
+@keyframes tick {
+  40% {
+    /* чуть поворачиваем язычок наверх в середине анимации */
+    transform: rotate(-12deg);
+  }
+}
+
+/* анимируем выпавший сектор */
+.prize.selected .text {
+  /* делаем текст белым */
+  color: white;
+  /* настраиваем длительность анимации */
+  animation: selected 800ms ease;
+}
+
+/* настраиваем анимацию текста на выпавшем секторе по кадрам */
+@keyframes selected {
+
+  /* что происходит на 25% от начала анимации */
+  25% {
+    /* увеличиваем текст в 1,25 раза */
+    transform: scale(1.25);
+    /* добавляем тексту тень */
+    text-shadow: 1vmin 1vmin 0 hsla(0 0% 0% / 0.1);
+  }
+
+  40% {
+    transform: scale(0.92);
+    text-shadow: 0 0 0 hsla(0 0% 0% / 0.2);
+  }
+
+  60% {
+    transform: scale(1.02);
+    text-shadow: 0.5vmin 0.5vmin 0 hsla(0 0% 0% / 0.1);
+  }
+
+  75% {
+    transform: scale(0.98);
+  }
+
+  85% {
+    transform: scale(1);
+  }
+}
+
+.is-spinning .image {
+  /* Анимация вращения */
+  transition: transform 8s cubic-bezier(0.1, -0.01, 0, 1);
+  transform: rotate(calc(var(--rotate, 25) * 1deg));
+}
+
+.img-box {
+  display: flex;
+  z-index: -1;
+  align-items: center;
+  justify-content: center;
+  animation-fill-mode: forwards;
+}
+
+.image {
+  transform: rotate(calc(var(--rotate, 25) * 1deg));
+  width: 649px;
+  animation-fill-mode: forwards;
+}
+
+.result-image {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  img {
+    max-width: 500px;
+    max-height: 500px;
+  }
+
+  &.hidden {
+    display: none;
+  }
 }
