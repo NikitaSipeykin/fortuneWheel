@@ -15,10 +15,48 @@ body {
   background-size: 100% 100%;
 }
 
+/* .hiden{
+  display: none;
+} */
+
+.character_space{
+  margin-top: 20px;
+  text-align: center;
+  position: absolute;
+  top: 120px;
+}
+.team {
+  left: 20px;
+}
+
+.enemy{
+  right: 20px;
+}
+
+.character_box {
+  display: flex;
+  justify-content: center;
+  gap: 10px;
+  flex-direction: column;
+}
+
+.character_slot {
+  width: 80px;
+  height: 80px;
+  border: 2px solid #ccc;
+  display: flex;
+  overflow: hidden;
+  background-color: #0000;
+}
+
+.character_slot img {
+  width: 100%;
+  height: auto;
+  object-fit: cover;
+}
 
 ul {
   padding-inline-start: 0;
-
 }
 
 /* общий блок для всех элементов */
@@ -74,7 +112,7 @@ ul {
   transform: rotate(calc(var(--rotate, 25) * 1deg));
   /* рисуем круглую обводку, а всё, что не поместится, — будет скрыто за кругом */
   border-radius: 50%;
-  opacity: 65%;
+  opacity: 0%;
 }
 
 /* всё, что внутри этого блока, будет находиться в области сетки с названием spinner */

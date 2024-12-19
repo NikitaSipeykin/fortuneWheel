@@ -1,5 +1,5 @@
 // надписи и цвета на секторах
-const prizes = [
+const characters = [
   {
     text: "1",
     img: "images/characters/1.jpg",
@@ -266,6 +266,10 @@ const prizes = [
   },
 ];
 
+// Массив для хранения выпавших призов (максимум 5)
+const yourTeam = [];
+const enemyTeam = [];
+
 // создаём переменные для быстрого доступа ко всем объектам на странице — блоку в целом, колесу, кнопке и язычку
 const wheel = document.querySelector(".deal-wheel");
 const spinner = wheel.querySelector(".spinner");
@@ -273,11 +277,12 @@ const trigger = wheel.querySelector(".btn-spin");
 const ticker = wheel.querySelector(".ticker");
 const image = wheel.querySelector(".image");
 
+const circle = document.querySelector(".image");
 
 // на сколько секторов нарезаем круг
-const prizeSlice = 360 / prizes.length;
+const prizeSlice = 360 / characters.length;
 // на какое расстояние смещаем сектора друг относительно друга
-const prizeOffset = Math.floor(180 / prizes.length);
+const prizeOffset = Math.floor(180 / characters.length);
 // прописываем CSS-классы, которые будем добавлять и убирать из стилей
 const spinClass = "is-spinning";
 const selectedClass = "selected";
@@ -294,11 +299,13 @@ let rotation = 0;
 let currentSlice = 0;
 // переменная для текстовых подписей
 let prizeNodes;
+//переменная для смены команд
+let switcher = false;
 
 // расставляем текст по секторам
 const createPrizeNodes = () => {
   // обрабатываем каждую подпись
-  prizes.forEach(({ text, color, reaction }, i) => {
+  characters.forEach(({ text, color, reaction }, i) => {
     // каждой из них назначаем свой угол поворота
     const rotation = ((prizeSlice * i) * -1) - prizeOffset;
     // добавляем код с размещением текста на страницу в конец блока spinner
@@ -319,9 +326,9 @@ const createConicGradient = () => {
     "style",
     `background: conic-gradient(
       from -90deg,
-      ${prizes
+      ${characters
         // получаем цвет текущего сектора
-        .map(({ color }, i) => `${color} 0 ${(100 / prizes.length) * (prizes.length - i)}%`)
+        .map(({ color }, i) => `${color} 0 ${(100 / characters.length) * (characters.length - i)}%`)
         .reverse()
       }
     );`
@@ -379,8 +386,56 @@ const selectPrize = () => {
   // Подсвечиваем текущий сектор
   prizeNodes[selected].classList.add(selectedClass);
   // Устанавливаем изображение, соответствующее выигрышному сектору
-  const prize = prizes[selected];
-  resultImage.innerHTML = `<img src="${prize.img}" alt="Prize">`;
+  const character = characters[selected];
+  resultImage.innerHTML = `<img src="${character.img}" alt="Prize">`;
+
+  // Добавляем приз в массив, если он еще не заполнен
+  if (yourTeam.length < 5) {
+    yourTeam.push(character.text); // Добавляем только текст для примера
+    console.log(`Добавлено: ${character.text}. Текущий массив: `, yourTeam);
+  } else {
+    console.log("Массив заполнен: ", yourTeam);
+    switcher = true;
+  }
+
+
+    // Находим контейнер для отображения результатов
+  const resultsContainer = document.querySelector(".your_team");
+          // Очищаем контейнер
+  resultsContainer.innerHTML = "";
+  
+    // Добавляем обновленные результаты в контейнер
+    yourTeam.forEach((prize) => {
+      const slot = document.createElement("div");
+      slot.classList.add("character_slot");
+      
+      slot.innerHTML = `<img src="images/characters/${prize}.jpg" alt="Result">`;
+      resultsContainer.appendChild(slot);
+    });
+
+    //тоже самое для противников
+    if (switcher == true){
+      if (enemyTeam.length < 5) {
+        enemyTeam.push(character.text); // Добавляем только текст для примера
+        console.log(`Добавлено: ${character.text}. Текущий массив: `, enemyTeam);
+      } else {
+        console.log("Массив заполнен: ", enemyTeam);
+        trigger.disabled = true;
+      }
+
+  // Находим контейнер для отображения результатов
+      const enemyContainer = document.querySelector(".your_enemy");
+        // Очищаем контейнер
+      enemyContainer.innerHTML = "";
+      // Добавляем обновленные результаты в контейнер
+      enemyTeam.forEach((prize) => {
+        const slot = document.createElement("div");
+        slot.classList.add("character_slot");
+        
+        slot.innerHTML = `<img src="images/characters/${prize}.jpg" alt="Result">`;
+        enemyContainer.appendChild(slot);
+      });
+    }  
 
   resultImage.classList.remove("hidden");
 };

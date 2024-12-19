@@ -1,32 +1,57 @@
 <!DOCTYPE html>
-<html lang="ru" >
+<html lang="ru">
+
 <head>
   <meta charset="UTF-8">
-  <title>Колесо удачи</title>
+  <title>Gomu Gomu no...</title>
+  <link rel="shortcut icon" href="/images/One_Piece_Anime_Emblem.png" type="image/x-icon">
   <!-- используем всю ширину экрана -->
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <!-- подключаем стили -->
   <link rel="stylesheet" href="css/style.css">
 
 </head>
-<body>
-<!-- главный блок -->
-<div class="deal-wheel">
-  <!-- блок с призами -->
-  <ul class="spinner"></ul>
 
-  <div class="img-box">
-    <img src="/images/wheel.png" alt="" class="image">
+<body>
+
+  <div class="team character_space hiden">
+    <div class="your_team character_box ">
+      <div class="team-slot character_slot"></div>
+      <div class="team-slot character_slot"></div>
+      <div class="team-slot character_slot"></div>
+      <div class="team-slot character_slot"></div>
+      <div class="team-slot character_slot"></div>
+    </div>
   </div>
-  <div class="result-image"></div>
-  
-  <!-- язычок барабана -->
-  <div class="ticker"></div>
-  <!-- кнопка -->
-  <button class="btn-spin">Испытай удачу</button>
-</div>
+
+  <div class="enemy character_space hiden">
+    <div class="your_enemy character_box">
+      <div class="enemy-slot character_slot"></div>
+      <div class="enemy-slot character_slot"></div>
+      <div class="enemy-slot character_slot"></div>
+      <div class="enemy-slot character_slot"></div>
+      <div class="enemy-slot character_slot"></div>
+    </div>
+  </div>
+
+  <!-- главный блок -->
+  <div class="deal-wheel hiden">
+    <!-- блок с призами -->
+    <ul class="spinner"></ul>
+
+    <div class="img-box hiden">
+      <img src="/images/wheel.png" alt="" class="image hiden">
+    </div>
+    <div class="result-image"></div>
+
+    <!-- язычок барабана -->
+    <div class="ticker hiden"></div>
+    <!-- кнопка -->
+    <button class="btn-spin hiden">Следующий персонаж</button>
+  </div>
   <!-- подключаем скрипт -->
   <script src="js/app.js"></script>
 
 </body>
+
 </html>
