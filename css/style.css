@@ -15,9 +15,11 @@ body {
   background-size: 100% 100%;
 }
 
-/* .hiden{
+/* ======================= основное колесо =========================== */
+
+.hidden{
   display: none;
-} */
+}
 
 .character_space{
   margin-top: 20px;
@@ -60,7 +62,7 @@ ul {
 }
 
 /* общий блок для всех элементов */
-.deal-wheel {
+.wheel {
   /* задаём переменные блока */
   /* размеры колеса */
   --size: clamp(250px, 80vmin, 700px);
@@ -85,18 +87,18 @@ ul {
 }
 
 /* всё, что относится ко внутренним элементам главного блока, будет находиться в области сетки с названием spinner */
-.deal-wheel>* {
+.wheel>* {
   grid-area: spinner;
 }
 
 /* сам блок и кнопка будут находиться в области сетки с названием trigger и будут выровнены по центру */
-.deal-wheel .btn-spin {
+.wheel .btn {
   grid-area: trigger;
   justify-self: center;
 }
 
 /* сектор колеса */
-.spinner {
+.spinner-box {
   /* добавляем относительное позиционирование */
   position: relative;
   /* подключаем сетку */
@@ -112,11 +114,15 @@ ul {
   transform: rotate(calc(var(--rotate, 25) * 1deg));
   /* рисуем круглую обводку, а всё, что не поместится, — будет скрыто за кругом */
   border-radius: 50%;
+
+}
+
+.spinner{
   opacity: 0%;
 }
 
 /* всё, что внутри этого блока, будет находиться в области сетки с названием spinner */
-.spinner * {
+.spinner-box * {
   grid-area: spinner;
 }
 
@@ -157,7 +163,7 @@ ul {
 }
 
 /* кнопка запуска колеса */
-.btn-spin {
+.btn {
   color: white;
   background: black;
   border: none;
@@ -172,7 +178,7 @@ ul {
 }
 
 /* если кнопка нажата и неактивна */
-.btn-spin:disabled {
+.btn:disabled {
   /* меняем внешний вид курсора */
   cursor: progress;
   /* делаем кнопку полупрозрачной */
@@ -180,7 +186,7 @@ ul {
 }
 
 /* анимация вращения */
-.is-spinning .spinner {
+.is-spinning .spinner-box {
   transition: transform 8s cubic-bezier(0.1, -0.01, 0, 1);
 }
 

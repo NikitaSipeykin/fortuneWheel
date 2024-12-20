@@ -13,8 +13,20 @@
 </head>
 
 <body>
+  
+  <div class="wheel array-wheel array">
+    <!-- блок с призами -->
+    <ul class="spinner-box array-spinner array"></ul>
 
-  <div class="team character_space hiden">
+    <!-- язычок барабана -->
+    <div class="ticker array"></div>
+    <!-- кнопка -->
+    <button class="btn btn-spin array">
+      <span id="my-span">Моя команда</span>
+    </button>
+  </div>
+
+  <div class="team character_space hidden">
     <div class="your_team character_box ">
       <div class="team-slot character_slot"></div>
       <div class="team-slot character_slot"></div>
@@ -24,7 +36,7 @@
     </div>
   </div>
 
-  <div class="enemy character_space hiden">
+  <div class="enemy character_space hidden">
     <div class="your_enemy character_box">
       <div class="enemy-slot character_slot"></div>
       <div class="enemy-slot character_slot"></div>
@@ -35,22 +47,22 @@
   </div>
 
   <!-- главный блок -->
-  <div class="deal-wheel hiden">
+  <div class="wheel deal-wheel hidden">
     <!-- блок с призами -->
-    <ul class="spinner"></ul>
+    <ul class="spinner-box spinner"></ul>
 
-    <div class="img-box hiden">
-      <img src="/images/wheel.png" alt="" class="image hiden">
+    <div class="img-box hidden">
+      <img src="/images/wheel.png" alt="" class="image hidden">
     </div>
     <div class="result-image"></div>
 
     <!-- язычок барабана -->
-    <div class="ticker hiden"></div>
+    <div class="ticker hidden"></div>
     <!-- кнопка -->
-    <button class="btn-spin hiden">Следующий персонаж</button>
+    <button class="btn btn-spin hidden">Следующий персонаж</button>
   </div>
   <!-- подключаем скрипт -->
-  <script src="js/app.js"></script>
+  <script src="js/array.js"></script>
 
 </body>
 
