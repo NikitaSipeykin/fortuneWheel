@@ -4,7 +4,7 @@ const characters = [
     text: "1",
     img: "images/characters/1.jpg",
   },
-  { 
+  {
     text: "2",
     img: "images/characters/2.jpg",
   },
@@ -12,7 +12,7 @@ const characters = [
     text: "3",
     img: "images/characters/3.jpg",
   },
-  { 
+  {
     text: "4",
     img: "images/characters/4.jpg",
   },
@@ -20,7 +20,7 @@ const characters = [
     text: "5",
     img: "images/characters/5.jpg",
   },
-  { 
+  {
     text: "6",
     img: "images/characters/6.jpg",
   },
@@ -28,7 +28,7 @@ const characters = [
     text: "7",
     img: "images/characters/7.jpg",
   },
-  { 
+  {
     text: "8",
     img: "images/characters/8.jpg",
   },
@@ -36,7 +36,7 @@ const characters = [
     text: "9",
     img: "images/characters/9.jpg",
   },
-  { 
+  {
     text: "10",
     img: "images/characters/10.jpg",
   },
@@ -44,7 +44,7 @@ const characters = [
     text: "11",
     img: "images/characters/11.jpg",
   },
-  { 
+  {
     text: "12",
     img: "images/characters/12.jpg",
   },
@@ -52,7 +52,7 @@ const characters = [
     text: "13",
     img: "images/characters/13.jpg",
   },
-  { 
+  {
     text: "14",
     img: "images/characters/14.jpg",
   },
@@ -60,7 +60,7 @@ const characters = [
     text: "15",
     img: "images/characters/15.jpg",
   },
-  { 
+  {
     text: "16",
     img: "images/characters/16.jpg",
   },
@@ -68,7 +68,7 @@ const characters = [
     text: "17",
     img: "images/characters/17.jpg",
   },
-  { 
+  {
     text: "18",
     img: "images/characters/18.jpg",
   },
@@ -76,7 +76,7 @@ const characters = [
     text: "19",
     img: "images/characters/19.jpg",
   },
-  { 
+  {
     text: "20",
     img: "images/characters/20.jpg",
   },
@@ -84,7 +84,7 @@ const characters = [
     text: "21",
     img: "images/characters/21.jpg",
   },
-  { 
+  {
     text: "22",
     img: "images/characters/22.jpg",
   },
@@ -92,7 +92,7 @@ const characters = [
     text: "23",
     img: "images/characters/23.jpg",
   },
-  { 
+  {
     text: "24",
     img: "images/characters/24.jpg",
   },
@@ -100,7 +100,7 @@ const characters = [
     text: "25",
     img: "images/characters/25.jpg",
   },
-  { 
+  {
     text: "26",
     img: "images/characters/26.jpg",
   },
@@ -108,7 +108,7 @@ const characters = [
     text: "27",
     img: "images/characters/27.jpg",
   },
-  { 
+  {
     text: "28",
     img: "images/characters/28.jpg",
   },
@@ -116,7 +116,7 @@ const characters = [
     text: "29",
     img: "images/characters/29.jpg",
   },
-  { 
+  {
     text: "30",
     img: "images/characters/30.jpg",
   },
@@ -124,7 +124,7 @@ const characters = [
     text: "31",
     img: "images/characters/31.jpg",
   },
-  { 
+  {
     text: "32",
     img: "images/characters/32.jpg",
   },
@@ -132,7 +132,7 @@ const characters = [
     text: "33",
     img: "images/characters/33.jpg",
   },
-  { 
+  {
     text: "34",
     img: "images/characters/34.jpg",
   },
@@ -140,7 +140,7 @@ const characters = [
     text: "35",
     img: "images/characters/35.jpg",
   },
-  { 
+  {
     text: "36",
     img: "images/characters/36.jpg",
   },
@@ -148,7 +148,7 @@ const characters = [
     text: "37",
     img: "images/characters/37.jpg",
   },
-  { 
+  {
     text: "38",
     img: "images/characters/38.jpg",
   },
@@ -156,7 +156,7 @@ const characters = [
     text: "39",
     img: "images/characters/39.jpg",
   },
-  { 
+  {
     text: "40",
     img: "images/characters/40.jpg",
   },
@@ -164,7 +164,7 @@ const characters = [
     text: "41",
     img: "images/characters/41.jpg",
   },
-  { 
+  {
     text: "42",
     img: "images/characters/42.jpg",
   },
@@ -172,7 +172,7 @@ const characters = [
     text: "43",
     img: "images/characters/43.jpg",
   },
-  { 
+  {
     text: "44",
     img: "images/characters/44.jpg",
   },
@@ -180,7 +180,7 @@ const characters = [
     text: "45",
     img: "images/characters/45.jpg",
   },
-  { 
+  {
     text: "46",
     img: "images/characters/46.jpg",
   },
@@ -188,7 +188,7 @@ const characters = [
     text: "47",
     img: "images/characters/47.jpg",
   },
-  { 
+  {
     text: "48",
     img: "images/characters/48.jpg",
   },
@@ -196,7 +196,7 @@ const characters = [
     text: "49",
     img: "images/characters/49.jpg",
   },
-  { 
+  {
     text: "50",
     img: "images/characters/50.jpg",
   },
@@ -204,7 +204,7 @@ const characters = [
     text: "51",
     img: "images/characters/51.jpg",
   },
-  { 
+  {
     text: "52",
     img: "images/characters/52.jpg",
   },
@@ -212,7 +212,7 @@ const characters = [
     text: "53",
     img: "images/characters/53.jpg",
   },
-  { 
+  {
     text: "54",
     img: "images/characters/54.jpg",
   },
@@ -220,7 +220,7 @@ const characters = [
     text: "55",
     img: "images/characters/55.jpg",
   },
-  { 
+  {
     text: "56",
     img: "images/characters/56.jpg",
   },
@@ -228,7 +228,7 @@ const characters = [
     text: "57",
     img: "images/characters/57.jpg",
   },
-  { 
+  {
     text: "58",
     img: "images/characters/58.jpg",
   },
@@ -236,7 +236,7 @@ const characters = [
     text: "59",
     img: "images/characters/59.jpg",
   },
-  { 
+  {
     text: "60",
     img: "images/characters/60.jpg",
   },
@@ -244,7 +244,7 @@ const characters = [
     text: "61",
     img: "images/characters/61.jpg",
   },
-  { 
+  {
     text: "62",
     img: "images/characters/62.jpg",
   },
@@ -252,7 +252,7 @@ const characters = [
     text: "63",
     img: "images/characters/63.jpg",
   },
-  { 
+  {
     text: "64",
     img: "images/characters/64.jpg",
   },
@@ -260,7 +260,7 @@ const characters = [
     text: "65",
     img: "images/characters/65.jpg",
   },
-  { 
+  {
     text: "66",
     img: "images/characters/66.jpg",
   },
@@ -277,7 +277,7 @@ const trigger = wheel.querySelector(".btn-spin");
 const ticker = wheel.querySelector(".ticker");
 const image = wheel.querySelector(".image");
 
-const circle = document.querySelector(".image");
+
 
 // на сколько секторов нарезаем круг
 const prizeSlice = 360 / characters.length;
@@ -327,10 +327,10 @@ const createConicGradient = () => {
     `background: conic-gradient(
       from -90deg,
       ${characters
-        // получаем цвет текущего сектора
-        .map(({ color }, i) => `${color} 0 ${(100 / characters.length) * (characters.length - i)}%`)
-        .reverse()
-      }
+      // получаем цвет текущего сектора
+      .map(({ color }, i) => `${color} 0 ${(100 / characters.length) * (characters.length - i)}%`)
+      .reverse()
+    }
     );`
   );
 };
@@ -357,11 +357,11 @@ const runTickerAnimation = () => {
   // взяли код анимации отсюда: https://css-tricks.com/get-value-of-css-rotation-through-javascript/
   const values = spinnerStyles.transform.split("(")[1].split(")")[0].split(",");
   const a = values[0];
-  const b = values[1];  
+  const b = values[1];
   let rad = Math.atan2(b, a);
-  
+
   if (rad < 0) rad += (2 * Math.PI);
-  
+
   const angle = Math.round(rad * (180 / Math.PI));
   const slice = Math.floor(angle / prizeSlice);
 
@@ -390,7 +390,7 @@ const selectPrize = () => {
   resultImage.innerHTML = `<img src="${character.img}" alt="Prize">`;
 
   // Добавляем приз в массив, если он еще не заполнен
-  if (yourTeam.length < 5) {
+  if (yourTeam.length < yourTeamLength) {
     yourTeam.push(character.text); // Добавляем только текст для примера
     console.log(`Добавлено: ${character.text}. Текущий массив: `, yourTeam);
   } else {
@@ -399,52 +399,50 @@ const selectPrize = () => {
   }
 
 
-    // Находим контейнер для отображения результатов
+  // Находим контейнер для отображения результатов
   const resultsContainer = document.querySelector(".your_team");
-          // Очищаем контейнер
+  // Очищаем контейнер
   resultsContainer.innerHTML = "";
-  
+
+  // Добавляем обновленные результаты в контейнер
+  yourTeam.forEach((prize) => {
+    const slot = document.createElement("div");
+    slot.classList.add("character_slot");
+
+    slot.innerHTML = `<img src="images/characters/${prize}.jpg" alt="Result">`;
+    resultsContainer.appendChild(slot);
+  });
+
+  //тоже самое для противников
+  if (switcher == true) {
+    if (enemyTeam.length < enemyTeamLength) {
+      enemyTeam.push(character.text); // Добавляем только текст для примера
+      console.log(`Добавлено: ${character.text}. Текущий массив: `, enemyTeam);
+    } else {
+      console.log("Массив заполнен: ", enemyTeam);
+      trigger.disabled = true;
+    }
+
+    // Находим контейнер для отображения результатов
+    const enemyContainer = document.querySelector(".your_enemy");
+    // Очищаем контейнер
+    enemyContainer.innerHTML = "";
     // Добавляем обновленные результаты в контейнер
-    yourTeam.forEach((prize) => {
+    enemyTeam.forEach((prize) => {
       const slot = document.createElement("div");
       slot.classList.add("character_slot");
-      
       slot.innerHTML = `<img src="images/characters/${prize}.jpg" alt="Result">`;
-      resultsContainer.appendChild(slot);
+      enemyContainer.appendChild(slot);
     });
-
-    //тоже самое для противников
-    if (switcher == true){
-      if (enemyTeam.length < 5) {
-        enemyTeam.push(character.text); // Добавляем только текст для примера
-        console.log(`Добавлено: ${character.text}. Текущий массив: `, enemyTeam);
-      } else {
-        console.log("Массив заполнен: ", enemyTeam);
-        trigger.disabled = true;
-      }
-
-  // Находим контейнер для отображения результатов
-      const enemyContainer = document.querySelector(".your_enemy");
-        // Очищаем контейнер
-      enemyContainer.innerHTML = "";
-      // Добавляем обновленные результаты в контейнер
-      enemyTeam.forEach((prize) => {
-        const slot = document.createElement("div");
-        slot.classList.add("character_slot");
-        
-        slot.innerHTML = `<img src="images/characters/${prize}.jpg" alt="Result">`;
-        enemyContainer.appendChild(slot);
-      });
-    }  
+  }
 
   resultImage.classList.remove("hidden");
 };
 
-// отслеживаем нажатие на кнопку
-trigger.addEventListener("click", () => {
+const startSpinning = () => {
   // скрываем изображение
   resultImage.classList.add("hidden");
-  // делаем её недоступной для нажатия
+  // делаем кнопку недоступной для нажатия
   trigger.disabled = true;
   // задаём начальное вращение колеса
   rotation = Math.floor(Math.random() * 360 + spinertia(2000, 5000));
@@ -457,9 +455,14 @@ trigger.addEventListener("click", () => {
   image.style.setProperty("--rotate", rotation);
   // возвращаем язычок в горизонтальную позицию
   ticker.style.animation = "none";
-  // запускаем анимацию вращение
+  // запускаем анимацию вращения
   runTickerAnimation();
-});
+};
+
+// отслеживаем нажатие на кнопку
+trigger.addEventListener("click", startSpinning);
+// отслеживаем нажатие на колесо
+circle.addEventListener("click", startSpinning);
 
 // отслеживаем, когда закончилась анимация вращения колеса
 spinner.addEventListener("transitionend", () => {
@@ -477,7 +480,6 @@ spinner.addEventListener("transitionend", () => {
   // делаем кнопку снова активной
   trigger.disabled = false;
 });
-
 
 // подготавливаем всё к первому запуску
 setupWheel();
