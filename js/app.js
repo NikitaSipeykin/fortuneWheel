@@ -401,16 +401,23 @@ const selectPrize = () => {
 
   // Находим контейнер для отображения результатов
   const resultsContainer = document.querySelector(".your_team");
+  const resultsContainerVS = document.querySelector(".vs_team");
   // Очищаем контейнер
   resultsContainer.innerHTML = "";
+  resultsContainerVS.innerHTML = "";
 
   // Добавляем обновленные результаты в контейнер
   yourTeam.forEach((prize) => {
     const slot = document.createElement("div");
-    slot.classList.add("character_slot");
+    const slotVS = document.createElement("div");
 
+    slot.classList.add("character_slot");
     slot.innerHTML = `<img src="images/characters/${prize}.jpg" alt="Result">`;
     resultsContainer.appendChild(slot);
+
+    slotVS.classList.add("vs_slot");
+    slotVS.innerHTML = `<img src="images/characters/${prize}.jpg" alt="Result">`;
+    resultsContainerVS.appendChild(slotVS);
   });
 
   //тоже самое для противников
@@ -420,19 +427,26 @@ const selectPrize = () => {
       console.log(`Добавлено: ${character.text}. Текущий массив: `, enemyTeam);
     } else {
       console.log("Массив заполнен: ", enemyTeam);
-      trigger.disabled = true;
     }
 
     // Находим контейнер для отображения результатов
     const enemyContainer = document.querySelector(".your_enemy");
+    const enemyContainerVS = document.querySelector(".vs_enemy");
     // Очищаем контейнер
     enemyContainer.innerHTML = "";
+    enemyContainerVS.innerHTML = "";
     // Добавляем обновленные результаты в контейнер
     enemyTeam.forEach((prize) => {
       const slot = document.createElement("div");
+      const slotVS = document.createElement("div");
+
       slot.classList.add("character_slot");
       slot.innerHTML = `<img src="images/characters/${prize}.jpg" alt="Result">`;
       enemyContainer.appendChild(slot);
+
+      slotVS.classList.add("vs_slot");
+      slotVS.innerHTML = `<img src="images/characters/${prize}.jpg" alt="Result">`;
+      enemyContainerVS.appendChild(slotVS);
     });
   }
 
@@ -440,23 +454,38 @@ const selectPrize = () => {
 };
 
 const startSpinning = () => {
-  // скрываем изображение
-  resultImage.classList.add("hidden");
-  // делаем кнопку недоступной для нажатия
-  trigger.disabled = true;
-  // задаём начальное вращение колеса
-  rotation = Math.floor(Math.random() * 360 + spinertia(2000, 5000));
-  // убираем прошлый приз
-  prizeNodes.forEach((prize) => prize.classList.remove(selectedClass));
-  // добавляем колесу класс is-spinning, с помощью которого реализуем нужную отрисовку
-  wheel.classList.add(spinClass);
-  // через CSS говорим секторам, как им повернуться
-  spinner.style.setProperty("--rotate", rotation);
-  image.style.setProperty("--rotate", rotation);
-  // возвращаем язычок в горизонтальную позицию
-  ticker.style.animation = "none";
-  // запускаем анимацию вращения
-  runTickerAnimation();
+  //проверка если второй массив заполнен то скрывает все элементы
+  if (enemyTeam.length < enemyTeamLength) {
+    // скрываем изображение
+    resultImage.classList.add("hidden");
+    // делаем кнопку недоступной для нажатия
+    trigger.disabled = true;
+    // задаём начальное вращение колеса
+    rotation = Math.floor(Math.random() * 360 + spinertia(2000, 5000));
+    // убираем прошлый приз
+    prizeNodes.forEach((prize) => prize.classList.remove(selectedClass));
+    // добавляем колесу класс is-spinning, с помощью которого реализуем нужную отрисовку
+    wheel.classList.add(spinClass);
+    // через CSS говорим секторам, как им повернуться
+    spinner.style.setProperty("--rotate", rotation);
+    image.style.setProperty("--rotate", rotation);
+    // возвращаем язычок в горизонтальную позицию
+    ticker.style.animation = "none";
+    // запускаем анимацию вращения
+    runTickerAnimation();
+  } else {
+    // Находим все элементы с классом main
+    const mainElement = document.querySelectorAll('.main');
+    // Скрываем их
+    mainElement.forEach(element => {
+      element.style.display = 'none';
+    });
+
+    document.querySelectorAll('.vs_hidden').forEach(element => {
+      element.classList.remove('vs_hidden');
+    });
+  }
+
 };
 
 // отслеживаем нажатие на кнопку

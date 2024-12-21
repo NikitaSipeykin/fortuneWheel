@@ -22,11 +22,11 @@
     <div class="ticker array"></div>
     <!-- кнопка -->
     <button class="btn btn-spin array">
-      <span id="my-span">Моя команда</span>
+      <span id="my-span">Первая команда</span>
     </button>
   </div>
 
-  <div class="team character_space hidden">
+  <div class="team character_space hidden main">
     <div class="your_team character_box ">
       <div class="team-slot character_slot"></div>
       <div class="team-slot character_slot"></div>
@@ -36,7 +36,7 @@
     </div>
   </div>
 
-  <div class="enemy character_space hidden">
+  <div class="enemy character_space hidden main">
     <div class="your_enemy character_box">
       <div class="enemy-slot character_slot"></div>
       <div class="enemy-slot character_slot"></div>
@@ -45,21 +45,46 @@
       <div class="enemy-slot character_slot"></div>
     </div>
   </div>
-
+  
   <!-- главный блок -->
-  <div class="wheel deal-wheel hidden">
+  <div class="wheel deal-wheel hidden main">
     <!-- блок с призами -->
     <ul class="spinner-box spinner"></ul>
 
-    <div class="img-box hidden">
+    <div class="img-box hidden main">
       <img src="/images/wheel.png" alt="" class="image hidden">
     </div>
     <div class="result-image"></div>
 
     <!-- язычок барабана -->
-    <div class="ticker hidden"></div>
+    <div class="ticker hidden main"></div>
     <!-- кнопка -->
-    <button class="btn btn-spin hidden">Следующий персонаж</button>
+    <button class="btn btn-spin hidden main">Следующий персонаж</button>
+  </div>
+
+  <div class="vs_block vs_hidden">
+    <div class="team vs_space vs_hidden ">
+      <div class="vs_team vs_box ">
+        <div class="team-slot vs_slot"></div>
+        <div class="team-slot vs_slot"></div>
+        <div class="team-slot vs_slot"></div>
+        <div class="team-slot vs_slot"></div>
+        <div class="team-slot vs_slot"></div>
+      </div>
+    </div>
+    <div class="">
+      <img src="/images/vs.png" alt="" class="vs vs_hidden">
+    </div>
+    <div class="vs-enemy vs_space vs_hidden">
+      <div class="vs_enemy vs_box">
+        <div class="enemy-slot vs_slot"></div>
+        <div class="enemy-slot vs_slot"></div>
+        <div class="enemy-slot vs_slot"></div>
+        <div class="enemy-slot vs_slot"></div>
+        <div class="enemy-slot vs_slot"></div>
+      </div>
+    </div>
+
   </div>
   <!-- подключаем скрипт -->
   <script src="js/array.js"></script>
