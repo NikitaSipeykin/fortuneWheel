@@ -78,7 +78,7 @@ ul {
   position: relative;
   /* подключаем сетку */
   display: grid;
-  grid-gap: calc(var(--size) / 20);
+  grid-gap: calc(var(--size) / 4);
   /* выравниваем содержимое блока по центру */
   align-items: center;
   /* задаём имена областей внутри сетки */
@@ -289,7 +289,7 @@ ul {
   display: flex;
   width: 1920px;
   height: 1080px;
-  top: -244px;
+  top: -65px;
   flex-direction: column;
   justify-content: center;
   background: url("/images/vs_bg.jpg") no-repeat;
