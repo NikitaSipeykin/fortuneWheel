@@ -1,0 +1,74 @@
+body {
+  font-family: Montserrat, sans-serif;
+  margin: 0;
+  padding: 0;
+  background: url("/images/mainBg.jpg") no-repeat;
+  background-size: 100% 100%;
+}
+
+.slide {
+  background: #1D2F30;
+  display: flex;
+  margin: 15px;
+  border: 1px solid #0B191A;
+  flex-direction: column;
+}
+
+.slider-container {
+  width: 80%;
+  margin: 50px auto;
+}
+
+.image {
+  width: 100%;
+  display: flex;
+  justify-content: center;
+}
+
+img {
+  width: auto;
+  display: block;
+  height: 398px;
+
+}
+
+.info {
+  margin-top: 16px;
+  margin-left: 16px;
+}
+
+.title {
+  color: #FFF;
+  font-size: 24px;
+  font-style: normal;
+  font-weight: 700;
+  line-height: 150%;
+  /* 36px */
+}
+
+.button-box {
+  width: 145px;
+  height: 45px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-shrink: 0;
+  border: 1px solid #BAE249;
+  margin-top: 16px;
+  margin-bottom: 24px;
+}
+
+.button {
+  color: #BAE249;
+  font-family: "Open Sans";
+  font-size: 16px;
+  font-weight: 400;
+}
+
+.slick-track {
+  display: flex;
+}
+
+.slick-arrow{
+  
+}
