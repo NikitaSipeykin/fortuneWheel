@@ -632,7 +632,7 @@ const selectPrize = () => {
     const slot = document.createElement("div");
     const slotVS = document.createElement("div");
 
-    if(prize = 17){
+    if(prize == 17){
       slot.classList.add("character_slot");
       slot.innerHTML = `<img src="images/characters/${prize}.jpeg" alt="Result">`;
       resultsContainer.appendChild(slot);
