@@ -449,7 +449,7 @@ const array_selectPrize = () => {
   if (counter == 0) {
     yourTeamLength = selected + 1;
     console.log("yourTeamLength", yourTeamLength)
-    span.textContent = 'Ваша команда';
+    span.textContent = 'Вторая команда';
   } else if (counter == 1) {
     enemyTeamLength = selected + 1;
     console.log("enemyTeamLength", enemyTeamLength)
@@ -501,16 +501,16 @@ array_spinner.addEventListener("transitionend", () => {
 });
 
 function loadMainWheelScript() {
-    // Находим все элементы с классом array
+  // Находим все элементы с классом array
   const arrayElements = document.querySelectorAll('.array');
-    // Скрываем их
-    arrayElements.forEach(element => {
-      element.style.display = 'none';
-    });
-// Показываем все элементы с классом hidden
-    document.querySelectorAll('.hidden').forEach(element => {
-      element.classList.remove('hidden');
-    });
+  // Скрываем их
+  arrayElements.forEach(element => {
+    element.style.display = 'none';
+  });
+  // Показываем все элементы с классом hidden
+  document.querySelectorAll('.hidden').forEach(element => {
+    element.classList.remove('hidden');
+  });
 
   console.log("change to main wheel")
 }
@@ -632,22 +632,22 @@ const selectPrize = () => {
     const slot = document.createElement("div");
     const slotVS = document.createElement("div");
 
-    if(prize == 17){
+    if (prize == 17) {
       slot.classList.add("character_slot");
       slot.innerHTML = `<img src="images/characters/${prize}.jpeg" alt="Result">`;
       resultsContainer.appendChild(slot);
-  
+
       slotVS.classList.add("vs_slot");
       slotVS.innerHTML = `<img src="images/characters/${prize}.jpeg" alt="Result">`;
       resultsContainerVS.appendChild(slotVS);
-    }else{
-          slot.classList.add("character_slot");
-    slot.innerHTML = `<img src="images/characters/${prize}.jpg" alt="Result">`;
-    resultsContainer.appendChild(slot);
+    } else {
+      slot.classList.add("character_slot");
+      slot.innerHTML = `<img src="images/characters/${prize}.jpg" alt="Result">`;
+      resultsContainer.appendChild(slot);
 
-    slotVS.classList.add("vs_slot");
-    slotVS.innerHTML = `<img src="images/characters/${prize}.jpg" alt="Result">`;
-    resultsContainerVS.appendChild(slotVS);
+      slotVS.classList.add("vs_slot");
+      slotVS.innerHTML = `<img src="images/characters/${prize}.jpg" alt="Result">`;
+      resultsContainerVS.appendChild(slotVS);
     }
   });
 
@@ -712,8 +712,8 @@ const startSpinning = () => {
       element.style.display = 'none';
     });
 
-    document.querySelectorAll('.vs_hidden').forEach(element => {
-      element.classList.remove('vs_hidden');
+    document.querySelectorAll('.location_hidden').forEach(element => {
+      element.classList.remove('location_hidden');
     });
   }
 
@@ -747,3 +747,212 @@ spinner.addEventListener("transitionend", () => {
 
 // подготавливаем всё к первому запуску
 setupWheel();
+
+
+// ======================================== круг выбора локации ====================================
+// ======================================== круг выбора локации ====================================
+// ======================================== круг выбора локации ====================================
+
+
+// надписи и цвета на секторах
+const locations = [
+  {
+    text: "Ветер",
+    color: "hsl(168, 100%, 50%)",
+    img: "images/wind.jpg",
+  },
+  {
+    text: "Земля",
+    color: "hsl(30, 100%, 20%)",
+    img: "images/earth.jpg",
+  },
+  {
+    text: "Огонь",
+    color: "hsl(27, 100%, 50%)",
+    img: "images/fire.jpg",
+  },
+  {
+    text: "Вода",
+    color: "hsl(216, 100%, 50%)",
+    img: "images/water.jpg",
+  }
+];
+
+// создаём переменные для быстрого доступа ко всем объектам на странице — блоку в целом, колесу, кнопке и язычку
+const location_wheel = document.querySelector(".location-wheel");
+const location_spinner = location_wheel.querySelector(".location-spinner");
+const location_trigger = location_wheel.querySelector(".btn-spin");
+const location_ticker = location_wheel.querySelector(".ticker");
+const location_span = document.getElementById('location-span')
+const location_circle = document.querySelector(".location-spinner");
+
+// на сколько секторов нарезаем круг
+const location_prizeSlice = 360 / locations.length;
+// на какое расстояние смещаем сектора друг относительно друга
+const location_prizeOffset = Math.floor(180 / locations.length);
+// прописываем CSS-классы, которые будем добавлять и убирать из стилей
+const location_spinClass = "is-spinning";
+const location_selectedClass = "selected";
+// получаем все значения параметров стилей у секторов
+const location_spinnerStyles = window.getComputedStyle(location_spinner);
+const locationContainerVS = document.querySelector(".vs_block");
+
+
+let bgNumber;
+
+// переменная для анимации
+let location_tickerAnim;
+// угол вращения
+let location_rotation = 0;
+// текущий сектор
+let location_currentSlice = 0;
+// переменная для текстовых подписей
+let location_prizeNodes;
+
+// расставляем текст по секторам
+const location_createPrizeNodes = () => {
+  // обрабатываем каждую подпись
+  locations.forEach(({ text, color, reaction }, i) => {
+    // каждой из них назначаем свой угол поворота
+    const location_rotation = ((location_prizeSlice * i) * -1) - location_prizeOffset;
+    // добавляем код с размещением текста на страницу в конец блока spinner
+    location_spinner.insertAdjacentHTML(
+      "beforeend",
+      // текст при этом уже оформлен нужными стилями
+      `<li class="prize" data-reaction=${reaction} style="--rotate: ${location_rotation}deg">
+        <span class="text">${text}</span>
+      </li>`
+    );
+  });
+};
+
+// рисуем разноцветные секторы
+const location_createConicGradient = () => {
+  // устанавливаем нужное значение стиля у элемента spinner
+  location_spinner.setAttribute(
+    "style",
+    `background: conic-gradient(
+      from -90deg,
+      ${locations
+      // получаем цвет текущего сектора
+      .map(({ color }, i) => `${color} 0 ${(100 / locations.length) * (locations.length - i)}%`)
+      .reverse()
+    }
+    );`
+  );
+};
+
+// создаём функцию, которая нарисует колесо в сборе
+const location_setupWheel = () => {
+  // сначала секторы
+  location_createConicGradient();
+  // потом текст
+  location_createPrizeNodes();
+  // а потом мы получим список всех призов на странице, чтобы работать с ними как с объектами
+  location_prizeNodes = location_wheel.querySelectorAll(".prize");
+};
+
+// определяем количество оборотов, которое сделает наше колесо
+const location_spinertia = (min, max) => {
+  min = Math.ceil(min);
+  max = Math.floor(max);
+  return Math.floor(Math.random() * (max - min + 1)) + min;
+};
+
+// функция запуска вращения с плавной остановкой
+const location_runTickerAnimation = () => {
+  // взяли код анимации отсюда: https://css-tricks.com/get-value-of-css-rotation-through-javascript/
+  const values = location_spinnerStyles.transform.split("(")[1].split(")")[0].split(",");
+  const a = values[0];
+  const b = values[1];
+  let rad = Math.atan2(b, a);
+
+  if (rad < 0) rad += (2 * Math.PI);
+
+  const angle = Math.round(rad * (180 / Math.PI));
+  const slice = Math.floor(angle / location_prizeSlice);
+
+  // анимация язычка, когда его задевает колесо при вращении
+  // если появился новый сектор
+  if (location_currentSlice !== slice) {
+    // убираем анимацию язычка
+    location_ticker.style.animation = "none";
+    // и через 10 миллисекунд отменяем это, чтобы он вернулся в первоначальное положение
+    setTimeout(() => location_ticker.style.animation = null, 10);
+    // после того, как язычок прошёл сектор - делаем его текущим 
+    location_currentSlice = slice;
+  }
+  // запускаем анимацию
+  location_tickerAnim = requestAnimationFrame(location_runTickerAnimation);
+};
+
+// функция выбора призового сектора
+const location_selectPrize = () => {
+  const selected = Math.floor(location_rotation / location_prizeSlice);
+  location_prizeNodes[selected].classList.add(location_selectedClass);
+
+  bgNumber = selected;
+};
+
+const startLocationSpinning = () => {
+  if (bgNumber != null) {
+    const bgVS = locations[bgNumber].img
+    // Находим все элементы с классом location
+    const locationElement = document.querySelectorAll('.location');
+    // Скрываем их
+    locationElement.forEach(element => {
+      element.style.display = 'none';
+    });
+
+    //добавляем фон соответственно числу
+    locationContainerVS.setAttribute(
+      "style",
+      `background: url("${bgVS}") no-repeat;
+      );`
+    );
+
+    document.querySelectorAll('.vs_hidden').forEach(element => {
+      element.classList.remove('vs_hidden');
+    });
+  } else {
+    // делаем её недоступной для нажатия
+    location_trigger.disabled = true;
+    // задаём начальное вращение колеса
+    location_rotation = Math.floor(Math.random() * 360 + location_spinertia(2000, 5000));
+    // убираем прошлый приз
+    location_prizeNodes.forEach((prize) => prize.classList.remove(location_selectedClass));
+    // добавляем колесу класс is-spinning, с помощью которого реализуем нужную отрисовку
+    location_wheel.classList.add(location_spinClass);
+    // через CSS говорим секторам, как им повернуться
+    location_spinner.style.setProperty("--rotate", location_rotation);
+    // возвращаем язычок в горизонтальную позицию
+    location_ticker.style.animation = "none";
+    // запускаем анимацию вращение
+    location_runTickerAnimation();
+  }
+}
+
+// отслеживаем нажатие на кнопку
+location_trigger.addEventListener("click", startLocationSpinning);
+// отслеживаем нажатие на кнопку
+location_circle.addEventListener("click", startLocationSpinning);
+
+// отслеживаем, когда закончилась анимация вращения колеса
+location_spinner.addEventListener("transitionend", () => {
+  // останавливаем отрисовку вращения
+  cancelAnimationFrame(location_tickerAnim);
+  // получаем текущее значение поворота колеса
+  location_rotation %= 360;
+  // выбираем приз
+  location_selectPrize();
+  // убираем класс, который отвечает за вращение
+  location_wheel.classList.remove(location_spinClass);
+  // отправляем в CSS новое положение поворота колеса
+  location_spinner.style.setProperty("--rotate", location_rotation);
+  // делаем кнопку снова активной
+  location_trigger.disabled = false;
+});
+
+
+// подготавливаем всё к первому запуску
+location_setupWheel();
